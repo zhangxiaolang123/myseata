@@ -1,0 +1,28 @@
+# 服务名
+spring:
+  application:
+    name: my-account-service
+  # seata分组,这里zxl跟file的service一致
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: zxl
+  # 数据源
+  datasource:
+    url: jdbc:mysql://localhost:3306/fescardubbo?serverTimezone=UTC
+    username: root
+    password: zhangxl
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# eureka
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://@localhost:8761/eureka/
+
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**Mapper.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.zxl.entity
